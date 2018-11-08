@@ -11,6 +11,7 @@
         <module>framework-core</module>
         <module>framework-cas</module>
         <module>framework-cache</module>
+        <module>framework-cache-redis</module>
     </modules>
 
     <properties>
