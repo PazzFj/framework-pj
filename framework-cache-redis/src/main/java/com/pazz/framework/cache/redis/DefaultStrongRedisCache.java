@@ -40,6 +40,15 @@ public abstract class DefaultStrongRedisCache<K, V> implements IRefreshableCache
 
     private String prefix = "framework.redis.strong.initialization.";
 
+
+    public void setCacheProvider(IBatchCacheProvider<K, V> cacheProvider) {
+        this.cacheProvider = cacheProvider;
+    }
+
+    public void setCacheStorage(RedisCacheStorage<K, V> cacheStorage) {
+        this.cacheStorage = cacheStorage;
+    }
+
     public void setInterval(int seconds) {
         this.interval = (long) seconds * 1000;
     }
@@ -108,6 +117,11 @@ public abstract class DefaultStrongRedisCache<K, V> implements IRefreshableCache
     }
 
     @Override
+    public boolean refresh(K... keys) {
+        throw new RuntimeException("Strong Cache Cannot Refresh Part!");
+    }
+
+    @Override
     public void destroy() throws Exception {
 
     }
@@ -143,16 +157,25 @@ public abstract class DefaultStrongRedisCache<K, V> implements IRefreshableCache
         }
     }
 
+    /**
+     * <p>重新初始化缓存数据</p>
+     */
     @Override
     public void invalid() {
-        cacheStorage
+        cacheStorage.hremove(getUUID());
+        cacheStorage.hremove(prefix+getUUID());
+        cacheStorage.initializationStrongCache(getUUID(), cacheProvider.get());
+        modifyTime = cacheProvider.getLastModifyTime();
     }
 
-    public void setCacheProvider(IBatchCacheProvider<K, V> cacheProvider) {
-        this.cacheProvider = cacheProvider;
+    @Override
+    public void invalid(K key) {
+        throw new RuntimeException("Strong Cache Cannot Invalid Part!");
     }
 
-    public void setCacheStorage(RedisCacheStorage<K, V> cacheStorage) {
-        this.cacheStorage = cacheStorage;
+    @Override
+    public void invalidMulti(K... keys) {
+        throw new RuntimeException("Strong Cache Cannot Invalid Part!");
     }
+
 }
