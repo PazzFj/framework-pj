@@ -46,7 +46,7 @@ public class RedisCacheStorage<K, V> implements IRemoteCacheStorage<K, V>, Initi
     /**
      * 初始化加锁key
      */
-    private final String lockKeyPrefix = "framework.redis.lock.";
+    private final String lockKeyPrefix = "framework.redis.locks.";
     /**
      * 初始化加锁Value
      */
@@ -55,6 +55,10 @@ public class RedisCacheStorage<K, V> implements IRemoteCacheStorage<K, V>, Initi
      * 是否初始化成功
      */
     private final String initSuccessPrefix = "framework.redis.strong.initialization.";
+
+    public void setRedisTemplate(RedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     @Override
     public boolean set(K key, V value) {

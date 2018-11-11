@@ -54,8 +54,7 @@ public class StringUtil {
     }
 
     public static String defaultIfNull(String str) {
-        return (str == null) ? EMPTY_STRING
-                : str;
+        return (str == null) ? EMPTY_STRING : str;
     }
 
     public static String defaultIfNull(String str, String defaultStr) {

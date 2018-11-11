@@ -12,6 +12,7 @@
         <module>framework-cas</module>
         <module>framework-cache</module>
         <module>framework-cache-redis</module>
+        <module>framework-spring-boot</module>
     </modules>
 
     <properties>

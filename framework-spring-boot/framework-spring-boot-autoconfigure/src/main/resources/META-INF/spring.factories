@@ -1,0 +1,20 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.pazz.framework.spring.boot.autoconfigure.actuate.ShutdownAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.cache.RedisCacheAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.cas.CasClientAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.web.AppContextAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.web.FrameworkFilterAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.web.FrameworkInterceptorAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.web.FrameworkWebMvcConfig,\
+com.pazz.framework.spring.boot.autoconfigure.web.ControllerValidatorAspectAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.log.LogAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.log.MongoLogAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.locks.LockRegistryAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.datasource.durid.DruidDataSourceAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.httpclient.HttpClientAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.feign.FeignClientAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.rocketmq.RocketMQAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.session.SessionAutoConfiguration
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.pazz.framework.spring.boot.autoconfigure.FrameworkEnvironmentPostProcessor
