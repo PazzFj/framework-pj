@@ -7,6 +7,7 @@ import com.pazz.framework.log.entity.LogType;
 import com.pazz.framework.util.DateUtils;
 import com.pazz.framework.util.StreamUtils;
 import com.pazz.framework.util.string.StringUtil;
+import com.pazz.framework.web.context.AppContext;
 import com.pazz.framework.web.context.RequestContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -69,14 +70,14 @@ public class LogFilter extends OncePerRequestFilter {
     /**
      * 过滤排除url
      */
-    private Set<String> excludeUrlPatterns = Sets.newLinkedHashSet(Sets.newHashSet("/scripts/**/*", "/styles/**/*", "/WEB-INF/pages/**/*","/images/**/*", "/**/*.html", "/**/*.jsp", "/**/*.js", "/**/*.css", "/**/*.png", "/**/*.jpg", "/**/*.gif"));
+    private Set<String> excludeUrlPatterns = Sets.newLinkedHashSet(Sets.newHashSet("/scripts/**/*", "/styles/**/*", "/WEB-INF/pages/**/*", "/images/**/*", "/**/*.html", "/**/*.jsp", "/**/*.js", "/**/*.css", "/**/*.png", "/**/*.jpg", "/**/*.gif"));
 
     private AntPathMatcher pathMatcher = new AntPathMatcher();
 
     private ILogWriter logWriter;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         boolean isFirstRequest = isAsyncDispatch(request);
         HttpServletRequest requestToUse = request;
         if (isFirstRequest && !(request instanceof ContentCachingRequestWrapper)) {
@@ -122,20 +123,20 @@ public class LogFilter extends OncePerRequestFilter {
     protected void logRequest(HttpServletRequest request) throws IOException {
         String payload = isIncludePayload() ? getRequestPlayload(request) : StringUtil.EMPTY_STRING;
         if (isLogPrint() && isLogRequest()) {
-            log.info(createRequestMessage(request, payload,new Date()));
+            log.info(createRequestMessage(request, payload, new Date()));
         }
         if (logWriter != null) {
             String content = StringUtil.defaultIfNull(request.getQueryString()) + payload;
-            LogInfo log = getLogInfo(LogInfo.BEGIN_ACTION, content ,new Date());
+            LogInfo log = getLogInfo(LogInfo.BEGIN_ACTION, content, new Date());
             logWriter.write(log);
         }
     }
 
-    protected String getRequestPlayload(HttpServletRequest request) throws IOException{
+    protected String getRequestPlayload(HttpServletRequest request) throws IOException {
         return StreamUtils.copyToString(request.getInputStream(), Charset.forName(request.getCharacterEncoding()));
     }
 
-    protected String createRequestMessage(HttpServletRequest request, String payload,Date requestDate) {
+    protected String createRequestMessage(HttpServletRequest request, String payload, Date requestDate) {
         StringBuilder msg = new StringBuilder();
         msg.append("Inbound Message\n----------------------------\n");
         msg.append("Address: ").append(request.getRequestURL()).append("\n");
@@ -159,17 +160,17 @@ public class LogFilter extends OncePerRequestFilter {
     protected void logResponse(HttpServletResponse response) {
         String payload = isIncludePayload() ? getResponsePayload(response) : StringUtil.EMPTY_STRING;
         if (isLogPrint() && isLogResponse()) {
-            log.info(createResponseMessage(response, payload,new Date()));
+            log.info(createResponseMessage(response, payload, new Date()));
         }
         if (logWriter != null) {
-            LogInfo log = getLogInfo(LogInfo.END_ACTION, payload ,new Date());
+            LogInfo log = getLogInfo(LogInfo.END_ACTION, payload, new Date());
             logWriter.write(log);
         }
     }
 
     protected String getResponsePayload(HttpServletResponse response) {
         String payload = StringUtil.EMPTY_STRING;
-        if(StringUtil.contains(response.getContentType(),MediaType.APPLICATION_JSON_VALUE)){
+        if (StringUtil.contains(response.getContentType(), MediaType.APPLICATION_JSON_VALUE)) {
             ContentCachingResponseWrapper wrapper =
                     WebUtils.getNativeResponse(response, ContentCachingResponseWrapper.class);
             if (wrapper != null) {
@@ -193,7 +194,7 @@ public class LogFilter extends OncePerRequestFilter {
         return payload;
     }
 
-    protected String createResponseMessage(HttpServletResponse response, String payload,Date responseDate) {
+    protected String createResponseMessage(HttpServletResponse response, String payload, Date responseDate) {
         StringBuilder msg = new StringBuilder();
         msg.append("Outbound Message\n----------------------------\n");
         msg.append("RequestId: ").append(RequestContext.getCurrentContext().getRequestId()).append("\n");
@@ -211,14 +212,15 @@ public class LogFilter extends OncePerRequestFilter {
         return msg.toString();
     }
 
-    protected LogInfo getLogInfo(String tag,String content, Date date) {
+    protected LogInfo getLogInfo(String tag, String content, Date date) {
         LogInfo info = new LogInfo();
+
         info.setRequestId(RequestContext.getCurrentContext().getRequestId());
         final String url = RequestContext.getCurrentContext()
                 .getRemoteRequestURL();
         info.setUrl(url);
         info.setIp(RequestContext.getCurrentContext().getIp());
-        info.setUserName(UserContext.getCurrentUser() == null ? "" : UserContext.getCurrentUser().getUserName());
+//        info.setUserName(UserContext.getCurrentUser() == null ? "" : UserContext.getCurrentUser().getUserName());
         info.setDate(date);
         info.setAction(tag);
         info.setAppName(AppContext.getAppContext().getContextPath());
