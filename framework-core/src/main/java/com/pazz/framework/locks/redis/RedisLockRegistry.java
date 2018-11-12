@@ -134,6 +134,9 @@ public final class RedisLockRegistry implements ExpirableLockRegistry {
         return defaultExpireUnusedOlderThanTime;
     }
 
+    /**
+     * RedisLock implements Lock
+     */
     private final class RedisLock implements Lock {
 
         private final String lockKey;
@@ -146,6 +149,9 @@ public final class RedisLockRegistry implements ExpirableLockRegistry {
             this.lockKey = constructLockKey(path);
         }
 
+        /**
+         * 构造key
+         */
         private String constructLockKey(String path) {
             return RedisLockRegistry.this.registryKey + ":" + path;
         }

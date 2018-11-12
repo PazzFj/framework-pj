@@ -1,6 +1,9 @@
 package com.pazz.framework.spring.boot.autoconfigure.locks;
 
+import com.pazz.framework.locks.jdbc.DefaultLockRepository;
+import com.pazz.framework.locks.jdbc.JdbcLockRegistry;
 import com.pazz.framework.locks.redis.RedisLockRegistry;
+import org.apache.curator.framework.CuratorFramework;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -57,14 +60,14 @@ public class LockRegistryAutoConfiguration {
     @AutoConfigureAfter(JdbcTemplateAutoConfiguration.class)
     @Import(JdbcTemplateAutoConfiguration.class)
     @EnableConfigurationProperties(LockRegistryProperties.class)
-    @ConditionalOnProperty(name = "framework.locks.jdbc.enable",havingValue = "true")
-    protected  static class JdbcLockRegistryAutoConfiguration{
+    @ConditionalOnProperty(name = "framework.locks.jdbc.enable", havingValue = "true")
+    protected static class JdbcLockRegistryAutoConfiguration {
         @Autowired
         private LockRegistryProperties properties;
 
         @Bean
         @ConditionalOnMissingBean
-        public DefaultLockRepository defaultLockRepository(JdbcTemplate jdbcTemplate){
+        public DefaultLockRepository defaultLockRepository(JdbcTemplate jdbcTemplate) {
             DefaultLockRepository defaultLockRepository = new DefaultLockRepository(jdbcTemplate);
             defaultLockRepository.setRegion(properties.getJdbc().getRegion());
             defaultLockRepository.setTableName(properties.getJdbc().getTableName());
@@ -74,8 +77,20 @@ public class LockRegistryAutoConfiguration {
 
         @Bean
         @ConditionalOnMissingBean
-        public JdbcLockRegistry jdbcLockRegistry(DefaultLockRepository lockRepository){
+        public JdbcLockRegistry jdbcLockRegistry(DefaultLockRepository lockRepository) {
             return new JdbcLockRegistry(lockRepository);
         }
+    }
+
+    @Configuration
+    @ConditionalOnClass({CuratorFramework.class})
+    protected static class ZookeeperLockRegistryAutoConfiguration {
+
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public LockRegistryLocksExpireJob lockRegistryLocksExpireJob() {
+        return new LockRegistryLocksExpireJob();
     }
 }

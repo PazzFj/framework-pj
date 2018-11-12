@@ -60,7 +60,7 @@ public class LockRegistryProperties {
          */
         private String tableName = "T_LOCK";
         /**
-         *
+         * 范围
          */
         private String region = "DEFAULT";
     }

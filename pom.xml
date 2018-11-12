@@ -13,6 +13,9 @@
         <module>framework-cache</module>
         <module>framework-cache-redis</module>
         <module>framework-spring-boot</module>
+        <module>framework-log-mongo</module>
+        <module>framework-log</module>
+        <module>framework-web</module>
     </modules>
 
     <properties>

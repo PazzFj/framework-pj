@@ -34,6 +34,11 @@
                 <artifactId>framework-cache-redis</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.pazz.framework</groupId>
+                <artifactId>framework-log-mongo</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
             <!--<dependency>
                 <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-web</artifactId>
@@ -57,11 +62,6 @@
             <dependency>
                 <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-log</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.pazz.framework</groupId>
-                <artifactId>framework-log-mongo</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>
@@ -104,6 +104,10 @@
         <dependency>
             <groupId>com.pazz.framework</groupId>
             <artifactId>framework-cache-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pazz.framework</groupId>
+            <artifactId>framework-log-mongo</artifactId>
         </dependency>
     </dependencies>
 
