@@ -34,7 +34,7 @@ import java.util.Set;
 /**
  * @author: Peng Jian
  * @create: 2018/11/12 17:00
- * @description:
+ * @description: 日志过滤器
  */
 public class LogFilter extends OncePerRequestFilter {
 
@@ -101,8 +101,7 @@ public class LogFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        return excludeUrlPatterns.stream()
-                .anyMatch(p -> pathMatcher.match(p, request.getServletPath()));
+        return excludeUrlPatterns.stream().anyMatch(p -> pathMatcher.match(p, request.getServletPath()));
     }
 
     /**
