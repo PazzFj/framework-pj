@@ -16,7 +16,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/11 15:54
  * @description: Redis Cache 自动装载
  */

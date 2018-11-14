@@ -16,6 +16,7 @@
         <module>framework-log-mongo</module>
         <module>framework-log</module>
         <module>framework-web</module>
+        <module>framework-datasource</module>
     </modules>
 
     <properties>

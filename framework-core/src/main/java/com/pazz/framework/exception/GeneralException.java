@@ -3,7 +3,7 @@ package com.pazz.framework.exception;
 import java.io.Serializable;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/7 14:12
  * @description: 所有的由框架各个层互相调用产生的解析、转换、调用接口错误导致的错误统称交互异常交互异常与应用异常的最明显区别是：
  * 应用异常是业务逻辑错误，需要业务方法进行Try..Catch

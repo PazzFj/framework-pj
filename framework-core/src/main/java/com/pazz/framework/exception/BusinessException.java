@@ -3,7 +3,7 @@ package com.pazz.framework.exception;
 import java.io.Serializable;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/7 14:12
  * @description: 业务异常基类
  */

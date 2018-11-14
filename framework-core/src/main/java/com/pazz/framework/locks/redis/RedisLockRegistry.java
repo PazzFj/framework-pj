@@ -23,7 +23,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/11 17:21
  * @description: Implementation of {@link com.pazz.framework.locks.LockRegistry} providing a distributed lock using Redis.
  * Locks are stored under the key {@code registryKey:lockKey}. Locks expire after

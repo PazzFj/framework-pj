@@ -3,7 +3,7 @@ package com.pazz.framework.locks.jdbc;
 import java.io.Closeable;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/12 9:12
  * @description: 锁仓库
  * 封装锁所需的SQL分流。{@link JdbcLockRegistry}需要对spring托管(事务性)客户机服务的引用，因此必须将该组件声明为bean。

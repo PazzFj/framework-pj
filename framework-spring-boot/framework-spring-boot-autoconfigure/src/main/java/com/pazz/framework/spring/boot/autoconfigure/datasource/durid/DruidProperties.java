@@ -4,13 +4,13 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/11 16:45
  * @description: druid 数据源
  */
 @ConfigurationProperties("spring.datasource.druid")
 @Data
-public class DuridProperties {
+public class DruidProperties {
     private Integer initialSize;
     private Integer minIdle;
     private Integer maxActive;

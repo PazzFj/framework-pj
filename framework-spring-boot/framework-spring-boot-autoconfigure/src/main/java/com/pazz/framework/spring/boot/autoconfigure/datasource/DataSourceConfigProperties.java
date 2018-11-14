@@ -8,7 +8,7 @@ import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 import javax.sql.DataSource;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/11 16:29
  * @description: 框架读写分离主从数据源配置文件
  */

@@ -3,7 +3,7 @@ package com.pazz.framework.cas.client;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/7 13:46
  * @description: CAS 客户端配置
  */

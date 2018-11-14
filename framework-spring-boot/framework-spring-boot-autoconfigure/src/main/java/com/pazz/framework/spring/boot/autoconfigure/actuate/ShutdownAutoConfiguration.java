@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/11 16:22
  * @description: Shutdown 自动装载
  */

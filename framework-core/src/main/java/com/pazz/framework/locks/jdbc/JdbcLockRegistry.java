@@ -16,7 +16,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/12 9:15Jdbc锁注册
  * @description:
  * 使用共享数据库来协调锁的{@link com.pazz.framework.locks.LockRegistry}。提供与{@link com.pazz.framework.locks.DefaultLockRegistry}相同的语义，

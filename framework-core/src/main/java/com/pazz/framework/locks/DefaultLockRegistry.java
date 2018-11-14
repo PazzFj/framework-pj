@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author Oleg Zhurakousky
  * @author Gary Russell
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/11 17:28
  * @description: Default implementation of {@link LockRegistry} which uses Masked Hashcode algorithm to obtain locks.
  * When an instance of this class is created and array of {@link Lock} objects is created. The length of

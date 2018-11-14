@@ -3,7 +3,7 @@ package com.pazz.framework.spring.boot.autoconfigure.cache;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/11 15:49
  * @description: 缓存配置文件
  */

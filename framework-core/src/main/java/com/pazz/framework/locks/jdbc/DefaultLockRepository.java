@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/12 9:10
  * @description: 默认锁仓库
  * 这个存储库不能在不同的{@link JdbcLockRegistry}实例之间共享。否则，它会打开一个可能的方法来破坏{@link java.util.concurrent.locks.Lock} 约束，

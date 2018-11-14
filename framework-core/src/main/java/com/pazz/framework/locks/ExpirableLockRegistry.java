@@ -1,7 +1,7 @@
 package com.pazz.framework.locks;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/11 17:24
  * @description: 此接口的实现支持删除当前未锁定的旧锁。
  * A {@link LockRegistry} implementing this interface supports the removal of aged locks

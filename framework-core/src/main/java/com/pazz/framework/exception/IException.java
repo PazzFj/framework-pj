@@ -1,7 +1,7 @@
 package com.pazz.framework.exception;
 
 /**
- * @author: Peng Jian
+ * @author: 彭坚
  * @create: 2018/11/7 14:13
  * @description: 异常接口
  */
