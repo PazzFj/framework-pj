@@ -23,10 +23,6 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author Gary Russell
- * @author Konstantin Yakimov
- * @author Artem Bilan
- * @author Vedran Pavic
  * @author: Peng Jian
  * @create: 2018/11/11 17:21
  * @description: Implementation of {@link com.pazz.framework.locks.LockRegistry} providing a distributed lock using Redis.
@@ -50,6 +46,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @since 4.0
  */
 public final class RedisLockRegistry implements ExpirableLockRegistry {
+
     private static final Log logger = LogFactory.getLog(RedisLockRegistry.class);
 
     private static final long DEFAULT_EXPIRE_AFTER = 60000;
