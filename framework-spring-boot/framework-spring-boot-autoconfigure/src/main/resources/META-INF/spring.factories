@@ -1,9 +1,9 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.pazz.framework.spring.boot.autoconfigure.cas.CasClientAutoConfiguration,\
-com.pazz.framework.spring.boot.autoconfigure.web.FrameworkInterceptorAutoConfiguration,\
 com.pazz.framework.spring.boot.autoconfigure.web.FrameworkWebMvcConfig,\
 com.pazz.framework.spring.boot.autoconfigure.web.ControllerValidatorAspectAutoConfiguration,\
+com.pazz.framework.spring.boot.autoconfigure.interceptor.FrameworkInterceptorAutoConfiguration,\
 com.pazz.framework.spring.boot.autoconfigure.rocketmq.RocketMQAutoConfiguration,\
 com.pazz.framework.spring.boot.autoconfigure.httpclient.HttpClientAutoConfiguration,\
 com.pazz.framework.spring.boot.autoconfigure.datasource.durid.DruidDataSourceAutoConfiguration,\

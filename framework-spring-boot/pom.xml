@@ -49,11 +49,22 @@
                 <artifactId>framework-rocketmq</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
-            <!--<dependency>
+            <dependency>
+                <groupId>com.pazz.framework</groupId>
+                <artifactId>framework-log</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-web</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.pazz.framework</groupId>
+                <artifactId>framework-sso</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <!--
             <dependency>
                 <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-mybatis</artifactId>
@@ -66,17 +77,7 @@
             </dependency>
             <dependency>
                 <groupId>com.pazz.framework</groupId>
-                <artifactId>framework-log</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-cas</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ncom.pazz.framework</groupId>
-                <artifactId>framework-sso</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>-->
             <dependency>
@@ -95,6 +96,10 @@
     <dependencies>
         <dependency>
             <groupId>com.pazz.framework</groupId>
+            <artifactId>framework-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pazz.framework</groupId>
             <artifactId>framework-core</artifactId>
         </dependency>
         <dependency>
@@ -107,6 +112,10 @@
         </dependency>
         <dependency>
             <groupId>com.pazz.framework</groupId>
+            <artifactId>framework-log</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pazz.framework</groupId>
             <artifactId>framework-log-mongo</artifactId>
         </dependency>
         <dependency>
@@ -116,6 +125,11 @@
         <dependency>
             <groupId>com.pazz.framework</groupId>
             <artifactId>framework-rocketmq</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pazz.framework</groupId>
+            <artifactId>framework-sso</artifactId>
         </dependency>
     </dependencies>
 
