@@ -2,7 +2,7 @@ package com.pazz.framework.rocketmq;
 
 import com.pazz.framework.rocketmq.exception.RocketMQException;
 import com.pazz.framework.util.JsonUtils;
-import org.apache.commons.lang3.StringUtils;
+import com.pazz.framework.util.string.StringUtil;
 import org.apache.rocketmq.client.producer.MQProducer;
 import org.apache.rocketmq.client.producer.MessageQueueSelector;
 import org.apache.rocketmq.client.producer.SendCallback;
@@ -35,22 +35,23 @@ public interface RocketMQProducer {
      */
     MQProducer getProducer();
 
+
     /**
      * 默认创建消息
      */
     default Message createMessage(String topic, String tag, Object msgObj) {
         String str = JsonUtils.toJson(msgObj);
-        if (StringUtils.isEmpty(topic)) {
-            if (StringUtils.isEmpty(getTopic())) {
+        if (StringUtil.isEmpty(topic)) {
+            if (StringUtil.isEmpty(getTopic())) {
                 throw new RuntimeException("no topic defined to send this message");
             }
             topic = getTopic();
         }
         Message message = new Message(topic, str.getBytes(Charset.forName("utf-8")));
         setMessageKeys(message, msgObj);
-        if (!StringUtils.isEmpty(tag)) {
+        if (!StringUtil.isEmpty(tag)) {
             message.setTags(tag);
-        } else if (!StringUtils.isEmpty(getTag())) {
+        } else if (!StringUtil.isEmpty(getTag())) {
             message.setTags(getTag());
         }
         return message;
@@ -124,7 +125,7 @@ public interface RocketMQProducer {
     void send(Object msgObj, MessageQueue mq, SendCallback sendCallback, long timeout) throws RocketMQException;
 
     /**
-     *
+     * 异步只发送一次消息到指定队列
      */
     void sendOneWay(Object msgObj, MessageQueue mq) throws RocketMQException;
 
@@ -149,7 +150,7 @@ public interface RocketMQProducer {
     void send(Object msgObj, MessageQueueSelector selector, Object arg, SendCallback sendCallback, long timeout) throws RocketMQException;
 
     /**
-     *
+     * 异步只发送一次消息到指定队列  （MessageQueueSelector）
      */
     void sendOneWay(Object msgObj, MessageQueueSelector selector, Object arg) throws RocketMQException;
 
