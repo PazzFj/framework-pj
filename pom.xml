@@ -17,6 +17,7 @@
         <module>framework-log</module>
         <module>framework-web</module>
         <module>framework-datasource</module>
+        <module>framework-rocketmq</module>
     </modules>
 
     <properties>

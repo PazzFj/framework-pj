@@ -44,6 +44,11 @@
                 <artifactId>framework-datasource</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.pazz.framework</groupId>
+                <artifactId>framework-rocketmq</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
             <!--<dependency>
                 <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-web</artifactId>
@@ -72,11 +77,6 @@
             <dependency>
                 <groupId>ncom.pazz.framework</groupId>
                 <artifactId>framework-sso</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.pazz.framework</groupId>
-                <artifactId>framework-rocketmq</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>-->
             <dependency>
@@ -112,6 +112,10 @@
         <dependency>
             <groupId>com.pazz.framework</groupId>
             <artifactId>framework-datasource</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pazz.framework</groupId>
+            <artifactId>framework-rocketmq</artifactId>
         </dependency>
     </dependencies>
 
