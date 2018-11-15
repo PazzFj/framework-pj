@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
  */
 @ConditionalOnProperty("spring.datasource.druid.aop-patterns")
 public class DruidSpringAopConfiguration {
+
     @Value("${spring.aop.proxy-target-class:false}")
     private boolean proxyTargetClass;
 
