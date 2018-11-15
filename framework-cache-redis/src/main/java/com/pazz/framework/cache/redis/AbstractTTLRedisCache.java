@@ -21,12 +21,12 @@ import java.util.Map;
  * @create: 2018/11/8 10:30
  * @description: TTL类型的缓存
  */
-public abstract class DefaultTTLRedisCache<V> implements ICache<String, V>, InitializingBean, DisposableBean {
+public abstract class AbstractTTLRedisCache<V> implements ICache<String, V>, InitializingBean, DisposableBean {
 
     /**
      * 日志
      */
-    private static final Log LOG = LogFactory.getLog(DefaultTTLRedisCache.class);
+    private static final Log LOG = LogFactory.getLog(AbstractTTLRedisCache.class);
     /**
      * 数据提供者
      */

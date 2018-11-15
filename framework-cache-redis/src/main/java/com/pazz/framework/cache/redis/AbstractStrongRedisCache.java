@@ -19,14 +19,14 @@ import java.util.Map;
 /**
  * @author: Peng Jian
  * @create: 2018/11/8 10:30
- * @description:
+ * @description: redis储存库
  */
-public abstract class DefaultStrongRedisCache<K, V> implements IRefreshableCache<K, V>, InitializingBean, DisposableBean {
+public abstract class AbstractStrongRedisCache<K, V> implements IRefreshableCache<K, V>, InitializingBean, DisposableBean {
 
     /**
      * 日志
      */
-    private static final Log LOG = LogFactory.getLog(DefaultStrongRedisCache.class);
+    private static final Log LOG = LogFactory.getLog(AbstractStrongRedisCache.class);
 
     private IBatchCacheProvider<K, V> cacheProvider;
 
