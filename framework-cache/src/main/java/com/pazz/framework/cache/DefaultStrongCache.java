@@ -113,6 +113,10 @@ public abstract class DefaultStrongCache<K, V> implements IRefreshableCache<K, V
         thread.interrupt();
     }
 
+    public void setCacheProvider(IBatchCacheProvider<K, V> cacheProvider) {
+        this.cacheProvider = cacheProvider;
+    }
+
     @Override
     public final V get(K key) {
         return cacheStorage.get(key);

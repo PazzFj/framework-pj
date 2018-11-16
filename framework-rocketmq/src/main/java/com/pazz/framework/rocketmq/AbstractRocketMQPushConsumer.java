@@ -1,6 +1,7 @@
 package com.pazz.framework.rocketmq;
 
 import com.pazz.framework.util.JsonUtils;
+import lombok.Data;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
@@ -16,6 +17,7 @@ import java.util.UUID;
 /**
  * RocketMQ 消费者抽象基类
  */
+@Data
 public abstract class AbstractRocketMQPushConsumer<T> {
 
     protected final Log log = LogFactory.getLog(getClass());
@@ -103,63 +105,6 @@ public abstract class AbstractRocketMQPushConsumer<T> {
         } else {
             throw new RuntimeException("Unkown parameterized type.");
         }
-    }
-
-
-    public String getInstanceName() {
-        return instanceName;
-    }
-
-    public void setInstanceName(String instanceName) {
-        this.instanceName = instanceName;
-    }
-
-    public ConsumeFromWhere getConsumeFromWhere() {
-        return consumeFromWhere;
-    }
-
-    public void setConsumeFromWhere(ConsumeFromWhere consumeFromWhere) {
-        this.consumeFromWhere = consumeFromWhere;
-    }
-
-    public int getConsumeThreadMin() {
-        return consumeThreadMin;
-    }
-
-    public void setConsumeThreadMin(int consumeThreadMin) {
-        this.consumeThreadMin = consumeThreadMin;
-    }
-
-    public int getConsumeThreadMax() {
-        return consumeThreadMax;
-    }
-
-    public void setConsumeThreadMax(int consumeThreadMax) {
-        this.consumeThreadMax = consumeThreadMax;
-    }
-
-    public int getConsumeMessageBatchMaxSize() {
-        return consumeMessageBatchMaxSize;
-    }
-
-    public void setConsumeMessageBatchMaxSize(int consumeMessageBatchMaxSize) {
-        this.consumeMessageBatchMaxSize = consumeMessageBatchMaxSize;
-    }
-
-    public int getPullBatchSize() {
-        return pullBatchSize;
-    }
-
-    public void setPullBatchSize(int pullBatchSize) {
-        this.pullBatchSize = pullBatchSize;
-    }
-
-    public long getConsumeMessageExpireInterval() {
-        return consumeMessageExpireInterval;
-    }
-
-    public void setConsumeMessageExpireInterval(long consumeMessageExpireInterval) {
-        this.consumeMessageExpireInterval = consumeMessageExpireInterval;
     }
 
 }

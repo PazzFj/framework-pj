@@ -1,5 +1,6 @@
 package com.pazz.framework.spring.boot.autoconfigure.web;
 
+import com.pazz.framework.holder.WebApplicationContextHolder;
 import com.pazz.framework.spring.boot.autoconfigure.FrameworkProperties;
 import com.pazz.framework.web.listener.AppContextListener;
 import org.springframework.beans.BeansException;
@@ -33,6 +34,12 @@ public class AppContextAutoConfiguration implements ApplicationContextAware {
     @ConditionalOnMissingBean(AppContextListener.class)
     public AppContextListener appContextListener() {
         return new AppContextListener(frameworkProperties.getStaticServerAddress(), frameworkProperties.getPackagePrefix());
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public WebApplicationContextHolder webApplicationContextHolder(){
+        return new WebApplicationContextHolder();
     }
 
     @Override

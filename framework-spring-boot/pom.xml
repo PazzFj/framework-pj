@@ -69,7 +69,6 @@
                 <artifactId>framework-cas</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
-            <!--
             <dependency>
                 <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-mybatis</artifactId>
@@ -79,7 +78,7 @@
                 <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-job</artifactId>
                 <version>${project.parent.version}</version>
-            </dependency>-->
+            </dependency>
             <dependency>
                 <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-spring-boot-autoconfigure</artifactId>
@@ -133,6 +132,14 @@
         <dependency>
             <groupId>com.pazz.framework</groupId>
             <artifactId>framework-sso</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pazz.framework</groupId>
+            <artifactId>framework-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pazz.framework</groupId>
+            <artifactId>framework-job</artifactId>
         </dependency>
     </dependencies>
 

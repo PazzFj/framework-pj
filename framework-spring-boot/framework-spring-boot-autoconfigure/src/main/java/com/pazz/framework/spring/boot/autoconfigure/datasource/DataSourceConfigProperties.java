@@ -1,6 +1,7 @@
 package com.pazz.framework.spring.boot.autoconfigure.datasource;
 
 import com.pazz.framework.util.string.StringUtil;
+import lombok.Data;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
@@ -12,6 +13,7 @@ import javax.sql.DataSource;
  * @create: 2018/11/11 16:29
  * @description: 框架读写分离主从数据源配置文件
  */
+@Data
 @ConfigurationProperties(prefix = "framework.datasource")
 public class DataSourceConfigProperties {
     /**
@@ -23,7 +25,8 @@ public class DataSourceConfigProperties {
      */
     private DataSourceConfig slave;
 
-    public static class DataSourceConfig{
+    @Data
+    public static class DataSourceConfig {
         /**
          * Fully qualified name of the JDBC driver. Auto-detected based on the URL by default.
          */
@@ -50,8 +53,8 @@ public class DataSourceConfigProperties {
          */
         private String jndiName;
 
-        public DataSource createDataSource(){
-            if(StringUtil.isNotBlank(jndiName)){
+        public DataSource createDataSource() {
+            if (StringUtil.isNotBlank(jndiName)) {
                 /**
                  * JNDI获取
                  */
@@ -62,60 +65,6 @@ public class DataSourceConfigProperties {
             return DataSourceBuilder.create().driverClassName(driverClassName).url(url).username(username).password(password).build();
         }
 
-        public String getDriverClassName() {
-            return driverClassName;
-        }
-
-        public void setDriverClassName(String driverClassName) {
-            this.driverClassName = driverClassName;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
-
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
-
-        public String getJndiName() {
-            return jndiName;
-        }
-
-        public void setJndiName(String jndiName) {
-            this.jndiName = jndiName;
-        }
     }
 
-    public DataSourceConfig getMaster() {
-        return master;
-    }
-
-    public void setMaster(DataSourceConfig master) {
-        this.master = master;
-    }
-
-    public DataSourceConfig getSlave() {
-        return slave;
-    }
-
-    public void setSlave(DataSourceConfig slave) {
-        this.slave = slave;
-    }
 }

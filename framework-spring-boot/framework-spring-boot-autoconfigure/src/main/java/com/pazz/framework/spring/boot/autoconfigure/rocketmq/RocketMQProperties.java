@@ -30,35 +30,4 @@ public class RocketMQProperties {
      */
     private boolean consumerEnable = true;
 
-    public String getNameServerAddress() {
-        return nameServerAddress;
-    }
-
-    public void setNameServerAddress(String nameServerAddress) {
-        this.nameServerAddress = nameServerAddress;
-    }
-
-    public String getProducerGroup() {
-        return producerGroup;
-    }
-
-    public void setProducerGroup(String producerGroup) {
-        this.producerGroup = producerGroup;
-    }
-
-    public boolean isVipChannelEnabled() {
-        return vipChannelEnabled;
-    }
-
-    public void setVipChannelEnabled(boolean vipChannelEnabled) {
-        this.vipChannelEnabled = vipChannelEnabled;
-    }
-
-    public boolean isConsumerEnable() {
-        return consumerEnable;
-    }
-
-    public void setConsumerEnable(boolean consumerEnable) {
-        this.consumerEnable = consumerEnable;
-    }
 }
