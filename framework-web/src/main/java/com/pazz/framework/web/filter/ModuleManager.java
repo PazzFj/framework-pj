@@ -25,7 +25,7 @@ public final class ModuleManager {
 
     private static PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 
-    private static final String PACKAGE_PREFIX = "net/yto/";
+    private static final String PACKAGE_PREFIX = "com/pazz/";
 
     private static final String PAGES_FROM = "/server/META-INF/pages/";
 

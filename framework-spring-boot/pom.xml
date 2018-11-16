@@ -64,6 +64,11 @@
                 <artifactId>framework-sso</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.pazz.framework</groupId>
+                <artifactId>framework-cas</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
             <!--
             <dependency>
                 <groupId>com.pazz.framework</groupId>
@@ -73,11 +78,6 @@
             <dependency>
                 <groupId>com.pazz.framework</groupId>
                 <artifactId>framework-job</artifactId>
-                <version>${project.parent.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.pazz.framework</groupId>
-                <artifactId>framework-cas</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>-->
             <dependency>
@@ -126,7 +126,10 @@
             <groupId>com.pazz.framework</groupId>
             <artifactId>framework-rocketmq</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.pazz.framework</groupId>
+            <artifactId>framework-cas</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.pazz.framework</groupId>
             <artifactId>framework-sso</artifactId>

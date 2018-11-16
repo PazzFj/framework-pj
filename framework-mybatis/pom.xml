@@ -10,20 +10,26 @@
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>framework-sso</artifactId>
+    <artifactId>framework-mybatis</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.pazz.framework</groupId>
             <artifactId>framework-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.pazz.framework</groupId>
-            <artifactId>framework-web</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
     </dependencies>
-
 
 </project>

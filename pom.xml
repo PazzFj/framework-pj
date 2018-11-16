@@ -19,6 +19,7 @@
         <module>framework-datasource</module>
         <module>framework-rocketmq</module>
         <module>framework-sso</module>
+        <module>framework-mybatis</module>
     </modules>
 
     <properties>

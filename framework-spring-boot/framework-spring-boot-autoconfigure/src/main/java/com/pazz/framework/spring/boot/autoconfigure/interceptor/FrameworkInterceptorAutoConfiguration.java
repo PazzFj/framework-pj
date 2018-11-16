@@ -60,7 +60,7 @@ public class FrameworkInterceptorAutoConfiguration {
     @ConditionalOnBean(FrameworkFilter.class)
     @ConditionalOnProperty(prefix = "framework.web.interceptor", name = "cookieLoginEnabled", matchIfMissing = false)
     public CookieLoginCheckInterceptor cookieLoginCheckInterceptor() {
-        com.pazz.framework.sso.interceptor.CookieLoginCheckInterceptor cookieLoginCheckInterceptor = new CookieLoginCheckInterceptor();
+        CookieLoginCheckInterceptor cookieLoginCheckInterceptor = new CookieLoginCheckInterceptor();
         return cookieLoginCheckInterceptor;
     }
 
