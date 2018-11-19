@@ -1,4 +1,4 @@
-package com.pazz.framework.spring.boot.autoconfigure.interceptor;
+package com.pazz.framework.spring.boot.autoconfigure.web;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

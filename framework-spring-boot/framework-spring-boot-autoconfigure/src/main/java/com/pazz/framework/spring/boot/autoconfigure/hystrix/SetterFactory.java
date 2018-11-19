@@ -5,6 +5,7 @@ import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;
 import feign.Feign;
 import feign.Target;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
@@ -13,6 +14,7 @@ import java.lang.reflect.Method;
  * @create: 2018/11/16 10:04
  * @description: 调节器
  */
+@Component
 public class SetterFactory implements feign.hystrix.SetterFactory {
 
     @Override

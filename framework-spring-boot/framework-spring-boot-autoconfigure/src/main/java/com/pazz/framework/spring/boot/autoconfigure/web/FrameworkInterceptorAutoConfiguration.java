@@ -1,6 +1,5 @@
-package com.pazz.framework.spring.boot.autoconfigure.interceptor;
+package com.pazz.framework.spring.boot.autoconfigure.web;
 
-import com.pazz.framework.spring.boot.autoconfigure.web.FrameworkFilterAutoConfiguration;
 import com.pazz.framework.sso.interceptor.CookieLoginCheckInterceptor;
 import com.pazz.framework.web.filter.FrameworkFilter;
 import com.pazz.framework.web.interceptor.ModuleInterceptor;

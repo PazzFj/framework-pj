@@ -1,9 +1,13 @@
 package com.pazz.framework.spring.boot.autoconfigure.actuate;
 
+import com.pazz.framework.web.filter.ShutdownFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Collections;
 
 /**
  * @author: 彭坚
@@ -13,10 +17,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ShutdownAutoConfiguration {
 
-//    @Bean
-//    @ConditionalOnClass(Shutdown)
-//    public FilterRegistrationBean shutdownFilter(){
-//
-//    }
+    @Bean
+    @ConditionalOnClass(ShutdownFilter.class)
+    @ConditionalOnProperty(value = "endpoints.shutdown.enabled", havingValue = "true")
+    public FilterRegistrationBean shutdownFilter() {
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        registrationBean.setFilter(new ShutdownFilter());
+        registrationBean.setUrlPatterns(Collections.singleton("/shutdown"));
+        return registrationBean;
+    }
 
 }

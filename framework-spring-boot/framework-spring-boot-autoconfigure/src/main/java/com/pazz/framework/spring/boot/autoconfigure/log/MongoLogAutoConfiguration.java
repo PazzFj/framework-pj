@@ -1,8 +1,6 @@
 package com.pazz.framework.spring.boot.autoconfigure.log;
 
-import com.pazz.framework.log.ILogSender;
 import com.pazz.framework.log.mongo.MongoLogSender;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;

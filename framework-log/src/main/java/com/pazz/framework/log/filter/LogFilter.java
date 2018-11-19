@@ -9,6 +9,8 @@ import com.pazz.framework.util.StreamUtils;
 import com.pazz.framework.util.string.StringUtil;
 import com.pazz.framework.web.context.AppContext;
 import com.pazz.framework.web.context.RequestContext;
+import com.pazz.framework.web.context.UserContext;
+import com.pazz.framework.web.request.ContentCachingRequestWrapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.http.MediaType;
@@ -16,7 +18,6 @@ import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
-import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.ContentCachingResponseWrapper;
 import org.springframework.web.util.WebUtils;
 
@@ -219,7 +220,7 @@ public class LogFilter extends OncePerRequestFilter {
                 .getRemoteRequestURL();
         info.setUrl(url);
         info.setIp(RequestContext.getCurrentContext().getIp());
-//        info.setUserName(UserContext.getCurrentUser() == null ? "" : UserContext.getCurrentUser().getUserName());
+        info.setUserName(UserContext.getCurrentUser() == null ? "" : UserContext.getCurrentUser().getUserName());
         info.setDate(date);
         info.setAction(tag);
         info.setAppName(AppContext.getAppContext().getContextPath());

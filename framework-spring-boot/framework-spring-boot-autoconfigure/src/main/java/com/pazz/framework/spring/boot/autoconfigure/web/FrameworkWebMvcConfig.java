@@ -1,6 +1,5 @@
 package com.pazz.framework.spring.boot.autoconfigure.web;
 
-import com.pazz.framework.spring.boot.autoconfigure.interceptor.FrameworkInterceptorAutoConfiguration;
 import com.pazz.framework.sso.interceptor.CookieLoginCheckInterceptor;
 import com.pazz.framework.web.AbstractWebMvcConfig;
 import com.pazz.framework.web.converter.StringToDateConverter;
@@ -23,7 +22,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 @ConditionalOnWebApplication
 @ConditionalOnMissingBean(AbstractWebMvcConfig.class)
 @Import(FrameworkInterceptorAutoConfiguration.class)
-public class FrameworkWebMvcAutoConfiguration extends AbstractWebMvcConfig {
+public class FrameworkWebMvcConfig extends AbstractWebMvcConfig {
 
     /**
      * 模块化拦截器
@@ -38,7 +37,7 @@ public class FrameworkWebMvcAutoConfiguration extends AbstractWebMvcConfig {
      */
     private CookieLoginCheckInterceptor cookieLoginCheckInterceptor;
 
-    public FrameworkWebMvcAutoConfiguration(ObjectProvider<ModuleInterceptor> moduleInterceptor, ObjectProvider<SecurityInterceptor> securityInterceptor, ObjectProvider<CookieLoginCheckInterceptor> cookieLoginCheckInterceptor) {
+    public FrameworkWebMvcConfig(ObjectProvider<ModuleInterceptor> moduleInterceptor, ObjectProvider<SecurityInterceptor> securityInterceptor, ObjectProvider<CookieLoginCheckInterceptor> cookieLoginCheckInterceptor) {
         this.moduleInterceptor = moduleInterceptor.getIfAvailable();
         this.securityInterceptor = securityInterceptor.getIfAvailable();
         this.cookieLoginCheckInterceptor = cookieLoginCheckInterceptor.getIfAvailable();
