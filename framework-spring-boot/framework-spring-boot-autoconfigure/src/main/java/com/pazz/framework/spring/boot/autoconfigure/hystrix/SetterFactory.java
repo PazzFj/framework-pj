@@ -5,7 +5,6 @@ import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;
 import feign.Feign;
 import feign.Target;
-import feign.hystrix.SetterFactory;
 
 import java.lang.reflect.Method;
 
@@ -14,7 +13,7 @@ import java.lang.reflect.Method;
  * @create: 2018/11/16 10:04
  * @description: 调节器
  */
-public class DefaultSetterFactory implements SetterFactory {
+public class SetterFactory implements feign.hystrix.SetterFactory {
 
     @Override
     public HystrixCommand.Setter create(Target<?> target, Method method) {
