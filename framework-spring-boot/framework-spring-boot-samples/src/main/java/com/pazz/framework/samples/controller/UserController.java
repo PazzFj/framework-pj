@@ -42,6 +42,8 @@ public class UserController extends AbstractWebController {
         //总数
         long total = page.getTotal();
         System.out.println(page.getTotal());
+        System.out.println(page.getTotal());
+        System.out.println(page.getTotal());
         return userService.getUser("1");
     }
 
