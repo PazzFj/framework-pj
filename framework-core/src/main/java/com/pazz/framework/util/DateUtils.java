@@ -77,13 +77,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 时间拼接 将日期和实现拼接 ymd 如2012-05-15 hm 如0812
-     *
-     * @param ymd
-     * @param hm
-     * @return
-     * @author 高佳
-     * @date 2015年8月19日
-     * @update
      */
     public static Date concat(String ymd, String hm) {
         if (StringUtils.isNotBlank(ymd) && StringUtils.isNotBlank(hm)) {
@@ -102,12 +95,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 根据传入的日期返回年月日的6位字符串，例：20101203
-     *
-     * @param date
-     * @return
-     * @author 高佳
-     * @date 2015年8月19日
-     * @update
      */
     public static String getDay(Date date) {
         return convert(date, DATE_SHORT_FORMAT);
@@ -115,12 +102,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 根据传入的日期返回中文年月日字符串，例：2010年12月03日
-     *
-     * @param date
-     * @return
-     * @author 高佳
-     * @date 2015年8月19日
-     * @update
      */
     public static String getChDate(Date date) {
         return convert(date, DATE_CH_FORMAT);
@@ -128,14 +109,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 将传入的时间格式的字符串转成时间对象
-     * <p>
-     * 例：传入2012-12-03 23:21:24
-     *
-     * @param dateStr
-     * @return
-     * @author 高佳
-     * @date 2015年8月19日
-     * @update
      */
     public static Date strToDate(String dateStr) {
         SimpleDateFormat formatDate = new SimpleDateFormat(DATE_TIME_FORMAT);
@@ -166,9 +139,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回该天从00:00:00开始的日期
-     *
-     * @param date
-     * @return
      */
     public static Date getStartDatetime(Date date) {
         String thisdate = convert(date, DATE_FORMAT);
@@ -178,9 +148,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回n天后从00:00:00开始的日期
-     *
-     * @param date
-     * @return
      */
     public static Date getStartDatetime(Date date, Integer diffDays) {
         SimpleDateFormat df = new SimpleDateFormat(DATE_FORMAT);
@@ -191,9 +158,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回该天到23:59:59结束的日期
-     *
-     * @param date
-     * @return
      */
     public static Date getEndDatetime(Date date) {
         String thisdate = convert(date, DATE_FORMAT);
@@ -203,9 +167,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回n天到23:59:59结束的日期
-     *
-     * @param date
-     * @return
      */
     public static Date getEndDatetime(Date date, Integer diffDays) {
         SimpleDateFormat df = new SimpleDateFormat(DATE_FORMAT);
@@ -217,8 +178,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回该日期的最后一刻，精确到纳秒
-     *
-     * @return
      */
     public static Timestamp getLastEndDatetime(Date endTime) {
         Timestamp ts = new Timestamp(endTime.getTime());
@@ -228,8 +187,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回该日期加1秒
-     *
-     * @return
      */
     public static Timestamp getEndTimeAdd(Date endTime) {
         Timestamp ts = new Timestamp(endTime.getTime());
@@ -242,10 +199,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回该日期加 millisecond 毫秒，正数为加，负数为减
-     *
-     * @param date
-     * @param millisecond
-     * @return
      */
     public static Timestamp getDateAdd(Date date, int millisecond) {
         Timestamp ts = new Timestamp(date.getTime());
@@ -258,10 +211,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 相对当前日期，增加或减少天数
-     *
-     * @param date
-     * @param day
-     * @return
      */
     public static String addDay(Date date, int day) {
         SimpleDateFormat df = new SimpleDateFormat(DATE_FORMAT);
@@ -271,10 +220,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 相对当前日期，增加或减少天数
-     *
-     * @param date
-     * @param day
-     * @return
      */
     public static Date addDayToDate(Date date, int day) {
         return new Date(date.getTime() + 1000l * 24 * 60 * 60 * day);
@@ -282,10 +227,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回两个时间的相差天数
-     *
-     * @param startTime 对比的开始时间
-     * @param endTime   对比的结束时间
-     * @return 相差天数
      */
 
     public static Long getTimeDiff(String startTime, String endTime) {
@@ -321,10 +262,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回两个时间的相差月数
-     *
-     * @param startTime 对比的开始时间
-     * @param endTime   对比的结束时间
-     * @return 相差月数
      */
     public static int getMonthDiff(Date startTime, Date endTime) {
         int months = 0;
@@ -339,10 +276,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回两个时间的相差天数
-     *
-     * @param startTime 对比的开始时间
-     * @param endTime   对比的结束时间
-     * @return 相差天数
      */
     public static Long getTimeDiff(Date startTime, Date endTime) {
         Long days = null;
@@ -358,10 +291,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回两个时间的相差分钟数
-     *
-     * @param startTime 对比的开始时间
-     * @param endTime   对比的结束时间
-     * @return 相差分钟数
      */
     public static Long getMinuteDiff(Date startTime, Date endTime) {
         Long minutes = null;
@@ -377,10 +306,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 返回两个时间的相差秒数
-     *
-     * @param startTime 对比的开始时间
-     * @param endTime   对比的结束时间
-     * @return 相差秒数
      */
     public static Long getSecondDiff(Date startTime, Date endTime) {
 
