@@ -1,6 +1,6 @@
 package com.pazz.framework.spring.boot.autoconfigure.locks;
 
-import com.pazz.framework.locks.ExpirableLockRegistry;
+import com.pazz.framework.locks.ExpireableLockRegistry;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeansException;
@@ -26,10 +26,10 @@ public class LockRegistryLocksExpireJob implements ApplicationContextAware {
     @Scheduled(fixedDelayString = "${framework.locks.expireJobFixedDelay:3600000}")
     public void expireLockRegistryLocks() {
         try {
-            String[] beanNames = applicationContext.getBeanNamesForType(ExpirableLockRegistry.class);
+            String[] beanNames = applicationContext.getBeanNamesForType(ExpireableLockRegistry.class);
             for (String beanName : beanNames) {
-                ExpirableLockRegistry expirableLockRegistry = applicationContext.getBean(beanName, ExpirableLockRegistry.class);
-                expirableLockRegistry.expireUnusedOlderThan(expirableLockRegistry.getDefaultExpireUnusedOlderThanTime());
+                ExpireableLockRegistry expireableLockRegistry = applicationContext.getBean(beanName, ExpireableLockRegistry.class);
+                expireableLockRegistry.expireUnusedOlderThan(expireableLockRegistry.getDefaultExpireUnusedOlderThanTime());
             }
         } catch (Exception e) {
             log.error("Error expire lockRegistry locks", e);

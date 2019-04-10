@@ -1,6 +1,6 @@
 package com.pazz.framework.locks.zookeeper;
 
-import com.pazz.framework.locks.ExpirableLockRegistry;
+import com.pazz.framework.locks.ExpireableLockRegistry;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.zookeeper.CreateMode;
@@ -23,10 +23,10 @@ import java.util.concurrent.locks.Lock;
 /**
  * @author: Peng Jian
  * @create: 2018/11/12 11:15
- * @description: {@link ExpirableLockRegistry} implementation using Zookeeper, or more specifically,
+ * @description: {@link ExpireableLockRegistry} implementation using Zookeeper, or more specifically,
  * Curator {@link InterProcessMutex}.
  */
-public class ZookeeperLockRegistry implements ExpirableLockRegistry, DisposableBean {
+public class ZookeeperLockRegistry implements ExpireableLockRegistry, DisposableBean {
 
     private static final String DEFAULT_ROOT = "/Framework-LockRegistry";
 

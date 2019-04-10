@@ -1,6 +1,6 @@
 package com.pazz.framework.locks.redis;
 
-import com.pazz.framework.locks.ExpirableLockRegistry;
+import com.pazz.framework.locks.ExpireableLockRegistry;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.CannotAcquireLockException;
@@ -45,7 +45,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * {@link Condition}s are not supported.
  * @since 4.0
  */
-public final class RedisLockRegistry implements ExpirableLockRegistry {
+public final class RedisLockRegistry implements ExpireableLockRegistry {
 
     private static final Log logger = LogFactory.getLog(RedisLockRegistry.class);
 

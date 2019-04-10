@@ -1,6 +1,6 @@
 package com.pazz.framework.locks.jdbc;
 
-import com.pazz.framework.locks.ExpirableLockRegistry;
+import com.pazz.framework.locks.ExpireableLockRegistry;
 import org.springframework.dao.CannotAcquireLockException;
 import org.springframework.dao.CannotSerializeTransactionException;
 import org.springframework.dao.DataAccessResourceFailureException;
@@ -23,7 +23,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 但是所获取的锁是全局的，只要底层数据库在其事务中支持“可序列化”隔离级别。
  * @since 4.3
  */
-public class JdbcLockRegistry implements ExpirableLockRegistry {
+public class JdbcLockRegistry implements ExpireableLockRegistry {
 
     private final Map<String, JdbcLock> locks = new ConcurrentHashMap<>();
 

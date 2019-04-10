@@ -7,7 +7,7 @@ package com.pazz.framework.locks;
  * A {@link LockRegistry} implementing this interface supports the removal of aged locks
  * that are not currently locked.
  */
-public interface ExpirableLockRegistry extends LockRegistry {
+public interface ExpireableLockRegistry extends LockRegistry {
     /**
      * 本地锁超时时间
      * 默认1小时
