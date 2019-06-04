@@ -62,6 +62,7 @@ public class RocketMQAutoConfiguration implements ApplicationContextAware {
             producer.setVipChannelEnabled(properties.isVipChannelEnabled());
             producer.start();
         }
+        //根据注解查询所有的  (beanName -> bean)
         Map<String, Object> beans = applicationContext.getBeansWithAnnotation(RocketMQProducer.class);
         for (Map.Entry<String, Object> entry : beans.entrySet()) {
             publishProducer(entry.getKey(), entry.getValue());
@@ -122,6 +123,7 @@ public class RocketMQAutoConfiguration implements ApplicationContextAware {
         }
         AbstractRocketMQProducer abstractMQProducer = (AbstractRocketMQProducer) bean;
         abstractMQProducer.setProducer(producer);
+        //通过beanName 找到对应的注解class
         RocketMQProducer mqProducer = applicationContext.findAnnotationOnBean(beanName, RocketMQProducer.class);
         String topic = mqProducer.topic();
         if (!StringUtil.isEmpty(topic)) {

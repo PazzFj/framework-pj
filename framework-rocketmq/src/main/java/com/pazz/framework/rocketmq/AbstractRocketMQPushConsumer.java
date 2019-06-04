@@ -54,7 +54,7 @@ public abstract class AbstractRocketMQPushConsumer<T> {
     private long consumeMessageExpireInterval = 1000 * 60 * 60 * 24;
 
     /**
-     * 继承这个方法处理消息
+     * 继承这个方法处理消息 (立即消费上下文)
      */
     public abstract boolean process(T object, MessageExt messageExt, ConsumeConcurrentlyContext consumeConcurrentlyContext);
 
