@@ -2,10 +2,10 @@
 <Context>
 <Resource name="jdbc/masterds" auth="Container" type="javax.sql.DataSource"
           username="root" password="root" driverClassName="com.mysql.jdbc.Driver"
-          url="jdbc:mysql://localhost/yto?useSSL=false"
+          url="jdbc:mysql://localhost/test?useSSL=false"
           maxActive="8" maxIdle="4"/>
 <Resource name="jdbc/slaveds" auth="Container" type="javax.sql.DataSource"
           username="root" password="root" driverClassName="com.mysql.jdbc.Driver"
-          url="jdbc:mysql://localhost/yto?useSSL=false"
+          url="jdbc:mysql://localhost/test?useSSL=false"
           maxActive="8" maxIdle="4"/>
 </Context>
