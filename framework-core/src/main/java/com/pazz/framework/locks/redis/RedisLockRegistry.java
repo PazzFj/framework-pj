@@ -136,6 +136,7 @@ public final class RedisLockRegistry implements ExpireableLockRegistry {
      */
     private final class RedisLock implements Lock {
 
+        // default:locks:   path
         private final String lockKey;
 
         private final ReentrantLock localLock = new ReentrantLock();
@@ -153,6 +154,9 @@ public final class RedisLockRegistry implements ExpireableLockRegistry {
             return RedisLockRegistry.this.registryKey + ":" + path;
         }
 
+        /**
+         * 拿锁的时间戳
+         */
         public long getLockedAt() {
             return this.lockedAt;
         }
@@ -210,15 +214,20 @@ public final class RedisLockRegistry implements ExpireableLockRegistry {
             }
         }
 
+        /**
+         * 如果在给定的等待时间内没有被另一个线程 占用 ，并且当前线程尚未被 保留，则获取该锁（ interrupted）
+         */
         @Override
         public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
             long now = System.currentTimeMillis();
+            // 如果在给定的等待时间内没有被另一个线程 占用 ，并且当前线程尚未被 保留，则获取该锁（ interrupted）
             if (!this.localLock.tryLock(time, unit)) {
                 return false;
             }
             try {
                 long expire = now + TimeUnit.MILLISECONDS.convert(time, unit);
                 boolean acquired;
+                // 尝试一直获取锁, 及根据
                 while (!(acquired = obtainLock()) && System.currentTimeMillis() < expire) { //NOSONAR
                     Thread.sleep(100); //NOSONAR
                 }
@@ -233,6 +242,9 @@ public final class RedisLockRegistry implements ExpireableLockRegistry {
             return false;
         }
 
+        /**
+         * 获取锁
+         */
         private boolean obtainLock() {
             boolean success = RedisLockRegistry.this.redisTemplate.execute(RedisLockRegistry.this.obtainLockScript,
                     Collections.singletonList(this.lockKey), RedisLockRegistry.this.clientId,
@@ -248,6 +260,7 @@ public final class RedisLockRegistry implements ExpireableLockRegistry {
             if (!this.localLock.isHeldByCurrentThread()) {
                 throw new IllegalStateException("You do not own lock at " + this.lockKey);
             }
+            // 查询当前线程对此锁的暂停数量。 如果大于1 释放锁
             if (this.localLock.getHoldCount() > 1) {
                 this.localLock.unlock();
                 return;

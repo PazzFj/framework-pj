@@ -27,6 +27,7 @@ public class JdbcLockRegistry implements ExpireableLockRegistry {
 
     private final Map<String, JdbcLock> locks = new ConcurrentHashMap<>();
 
+    // DefaultLockRepository 对象
     private final LockRepository client;
 
     public JdbcLockRegistry(LockRepository client) {
@@ -55,6 +56,7 @@ public class JdbcLockRegistry implements ExpireableLockRegistry {
 
     private static class JdbcLock implements Lock {
 
+        // DefaultLockRepository 对象
         private final LockRepository mutex;
 
         private final String path;

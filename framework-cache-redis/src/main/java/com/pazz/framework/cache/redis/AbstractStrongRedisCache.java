@@ -69,17 +69,17 @@ public abstract class AbstractStrongRedisCache<K, V> implements IRefreshableCach
     public V get(K key) {
         V value = null;
         try {
-            value = cacheStorage.hget(getUUID(),key);
-        } catch(ValueIsBlankException e) {
+            value = cacheStorage.hget(getUUID(), key);
+        } catch (ValueIsBlankException e) {
             //key存在，value为空串
             return null;
-        } catch(ValueIsNullException ex) {
+        } catch (ValueIsNullException ex) {
             //key存在，value为null
             return null;
-        } catch(KeyIsNotFoundException ex1) {
+        } catch (KeyIsNotFoundException ex1) {
             //key不存在
             return null;
-        } catch(RedisConnectionFailureException exx) {
+        } catch (RedisConnectionFailureException exx) {
             //redis 连接出现异常
             LOG.error("redis 连接异常!");
             return null;
@@ -91,7 +91,7 @@ public abstract class AbstractStrongRedisCache<K, V> implements IRefreshableCach
     public Map<K, V> get() {
         try {
             return cacheStorage.hget(getUUID());
-        } catch(RedisConnectionFailureException e) {
+        } catch (RedisConnectionFailureException e) {
             //redis 连接出现异常
             LOG.error("redis 连接异常!");
             return cacheProvider.get();
@@ -126,8 +126,11 @@ public abstract class AbstractStrongRedisCache<K, V> implements IRefreshableCach
 
     }
 
+    /**
+     * 加载线程
+     */
     private class ReloadThread extends Thread {
-        private volatile int state;
+        private volatile int state; // 状态
 
         ReloadThread(String threadName) {
             super(threadName);
@@ -163,7 +166,7 @@ public abstract class AbstractStrongRedisCache<K, V> implements IRefreshableCach
     @Override
     public void invalid() {
         cacheStorage.hremove(getUUID());
-        cacheStorage.hremove(prefix+getUUID());
+        cacheStorage.hremove(prefix + getUUID());
         cacheStorage.initializationStrongCache(getUUID(), cacheProvider.get());
         modifyTime = cacheProvider.getLastModifyTime();
     }
