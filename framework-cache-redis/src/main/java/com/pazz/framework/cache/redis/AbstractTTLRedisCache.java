@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * @author: Peng Jian
  * @create: 2018/11/8 10:30
- * @description: TTL类型的缓存
+ * @description: TTL类型的缓存(生存时间)
  */
 public abstract class AbstractTTLRedisCache<V> implements ICache<String, V>, InitializingBean, DisposableBean {
 
